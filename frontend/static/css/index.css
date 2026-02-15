@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    margin-left: 200    px;
+    margin-right: 200px;
+}
+
+header {
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #A0F1BD;
+}
+
+.nav__button {
+    background: none;
+    color: #2E4F21;
+    border: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.login-button {
+   border: none;
+   font-family: 'Work Sans', sans-serif;
+   background: #2E4F21;
+   color: white;
+   border-radius: 30px;
+   height: 50px;
+   width: 150px;
+}
+
+.nav__profile-button {
+   margin-left: 20px;
+   margin-right: 20px;
+   height: 40px;
+   width: 80px;
+}
+
+.header-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60vh;
+    background-color: #A0F1BD;
+    margin-top: 100px;
+}
+
+.header-banner__globe {
+    background-image: url("../img/globe.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    height: 66%;
+    margin-right: 75px;
+}
+
+.description {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: 75px;
+    font-family: 'Work Sans';
+}
+
+.description__title {
+    font-weight: medium;
+    font-size: 64px;
+    color: #2E4F21;
+    margin-bottom: 20px;
+}
+
+.description__subtitle {
+    color: #2E4F21;
+}
+
+.services-banner__wraper {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.services-banner {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    height: 30vh;
+    background-color: white;
+    font-family: 'Work Sans';
+    color: #2E4F21;
+    width: 100%;
+}
+
+.services-banner__link-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.services-banner__title {
+    text-align: center;
+    width: 90%;
+    font-size: 60px;
+}
+
+.services-banner__subtitle {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.services-banner__button {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
