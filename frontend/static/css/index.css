@@ -7,7 +7,7 @@
 }
 
 html {
-    margin-left: 200    px;
+    margin-left: 200px;
     margin-right: 200px;
 }
 
@@ -65,7 +65,7 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     aspect-ratio: 1 / 1;
-    height: 66%;
+    height: 80%;
     margin-right: 75px;
 }
 
@@ -87,7 +87,7 @@ header {
     color: #2E4F21;
 }
 
-.services-banner__wraper {
+.services-banner__wrapper {
     width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -129,4 +129,51 @@ header {
     justify-content: center;
     align-content: center;
     text-align: center;
+}
+
+.service-card__wrapper {
+    display: flex;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.service-card__wrapper:nth-child(even) {
+    justify-content: flex-end;
+}
+
+.service-card {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #D2F8DC;
+    border-radius: 30px;
+}
+
+.service-card__wrapper:nth-child(odd) .service-card {
+    flex-direction: row;
+}
+
+.service-card__wrapper:nth-child(even) .service-card {
+    flex-direction: row-reverse;
+}
+
+.service-card__image {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 50%;
+}
+
+.service-card__text-area {
+    font-family: 'Work Sans';
+    color: #2E4F21;
+    width: 30%;
+}
+
+.service-card__title {
+    font-size: 45px;
+    font-weight: 400;
+    margin-bottom: 40px;
 }
