@@ -35,6 +35,25 @@ header {
     background-color: #A0F1BD;
 }
 
+.nav.nav--open {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 90;
+    align-items: flex-start;
+    border: none;
+}
+
+.nav.nav--open :last-child {
+    position: absolute;
+    bottom: 0;
+
+}
+
 .burger-button {
     display: none;
     height: 100%;
@@ -42,6 +61,15 @@ header {
     background-color: var(--color-primary);
     color: white;
     border: none;
+}
+
+.nav.nav--open .burger-button {
+    height: 100px;
+}
+
+.burger-button:hover {
+    cursor: pointer;
+    background-color: var(--color-accent);
 }
 
 .nav__button {
@@ -54,6 +82,11 @@ header {
     margin-left: 20px;
 }
 
+.nav.nav--open .nav__button {
+    font-size: 30px;
+    height: 100px;
+}
+
 .login-button {
    border: none;
    font-family: 'Work Sans', sans-serif;
@@ -64,11 +97,23 @@ header {
    width: 150px;
 }
 
+.nav.nav--open .login-button {
+    align-items: flex-end;
+    height: 100px;
+    width: 100%;
+    margin-left: 0px;
+    border-radius: 0px;
+}
+
 .nav__profile-button {
    margin-left: 20px;
    margin-right: 20px;
    height: 40px;
    width: 80px;
+}
+
+.nav.nav--open .nav__profile-button {
+    margin: 0px;
 }
 
 .header-banner {

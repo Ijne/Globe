@@ -3,26 +3,43 @@ document.addEventListener('DOMContentLoaded', function() {
     const navButtons = document.querySelectorAll(".nav__button")
     const burgerButton = document.createElement('button');
     burgerButton.classList.add('burger-button');
+    burgerButton.classList.add('burger-button--open');
     burgerButton.innerHTML = '☰';
+    burgerButton.addEventListener("click", function() {
+        if (burgerButton.classList.contains("burger-button--open")) {
+            nav.classList.add("nav--open")
+            burgerButton.classList.remove("burger-button--open")
+            burgerButton.classList.add("burger-button--close")
+            showNavButtons();
+        } else {
+            nav.classList.remove("nav--open")
+            burgerButton.classList.add("burger-button--open")
+            burgerButton.classList.remove("burger-button--close")
+            hideNavButtons();
+        }
+    });
     nav.prepend(burgerButton);
-    console.log(nav, burgerButton);
+
+    function hideNavButtons() {
+        navButtons.forEach(button => {
+            button.style.display = "none";
+        });
+    };
+
+    function showNavButtons() {
+        navButtons.forEach(button => {
+            button.style.display = "block";
+        });
+    };
 
     function checkMenuWidth() {
         if (screen.width <= 800) {
-            console.log(screen.width);
-            
-            navButtons.forEach(button => {
-                button.style.display = "none";
-            });
+            hideNavButtons();
 
             burgerButton.style.display = "block";
-
-            console.log(nav);
         }
         else {
-            navButtons.forEach(button => {
-                button.style.display = "block";
-            });
+            showNavButtons();
             burgerButton.style.display = "none";
         }
     }
