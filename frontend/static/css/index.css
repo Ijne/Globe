@@ -35,6 +35,15 @@ header {
     background-color: #A0F1BD;
 }
 
+.burger-button {
+    display: none;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+
 .nav__button {
     background: none;
     color: #2E4F21;
@@ -393,11 +402,19 @@ footer {
 }
 
 @media (max-width: 800px) {
+    .nav {
+        flex-direction: row-reverse;
+        height: 75px;
+        padding: 0px;
+        border-bottom: 1px solid var(--color-accent);
+    }
+
     .header-banner {
         flex-direction: column-reverse;
         justify-content: flex-end;
         margin-top: 0px;
         height: auto;
+        padding-top: 20px;
         padding-bottom: 20px;
     }
 
@@ -406,7 +423,7 @@ footer {
     }
 
     .header-banner__globe {
-        width: 90vw;
+        width: 80vw;
         height: auto;
         margin-bottom: 20px;
     }
@@ -538,4 +555,4 @@ footer {
     .footer__copyright {
         align-self: flex-start;
     }
-}   
+} 
