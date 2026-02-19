@@ -12,9 +12,13 @@
     box-sizing: border-box;
 }
 
-html {
+main {
     margin-left: 10%;
     margin-right: 10%;
+}
+
+html {
+    margin: 0px;
 }
 
 header {
@@ -264,6 +268,7 @@ header {
 
 .image-banner {
     width: 100%;
+    border-radius: 30px;
 }
 
 .variants {
@@ -311,8 +316,48 @@ header {
     font-size: 30px;
 }
 
+footer {
+    display: grid;
+    grid-template-areas: 
+    "title button"
+    "text copyright";
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+    padding-left: 60px;
+    height: 50vh;
+    background-color: var(--color-primary);
+    font-family: 'Work Sans';
+    color: white;
+}
+
+.footer__title {
+    font-size: 35px;
+    grid-area: title;
+}
+
+.footer__text {
+    display: flex;
+    align-self: flex-end;
+    grid-area: text;
+    font-size: 15px;
+    padding-right: 150px;
+}
+
+.footer__button {
+    grid-area: button;
+    background-color: white;
+    color: var(--color-primary);
+}
+
+.footer__copyright {
+    display: flex;
+    align-self: flex-end;
+    font-size: 15px;
+    grid-area: copyright;
+}
+
 @media (max-width: 1300px) {
-    html {
+    main {
         margin-left: 0%;
         margin-right: 0%;
     }
@@ -452,11 +497,14 @@ header {
     .variants {
         display: flex;
         flex-direction: column;
+        padding-top: 30px;
     }
 
     .variants__title {
         padding-right: 0px;
+        padding-top: 0px;
         padding-bottom: 30px;
+        font-size: 10vw;
     }
 
     .variants-table {
@@ -474,5 +522,20 @@ header {
 
     .variants-table-element__title {
         font-size: 5.5vw;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 30px;
+    }
+
+    .footer__text {
+        padding-right: 0px;
+    }
+
+    .footer__copyright {
+        align-self: flex-start;
     }
 }   
