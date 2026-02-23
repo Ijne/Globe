@@ -46,12 +46,17 @@ header {
     z-index: 90;
     align-items: flex-start;
     border: none;
+    background-color: rgba(160, 241, 189, 0.95);
 }
 
 .nav.nav--open :last-child {
     position: absolute;
     bottom: 0;
 
+}
+
+.nav__button:hover {
+    transform: translateY(-3px);
 }
 
 .burger-button {
@@ -97,6 +102,11 @@ header {
    width: 150px;
 }
 
+.login-button:hover {
+    background-color: var(--color-accent);
+    transition: 0.3s ease;
+}
+
 .nav.nav--open .login-button {
     align-items: flex-end;
     height: 100px;
@@ -128,6 +138,7 @@ header {
 }
 
 .header-banner__globe {
+    animation: rotate 20s linear infinite alternate;
     height: 90%;
 }
 
@@ -273,6 +284,14 @@ header {
     height: 10vh;
     padding: 30px;
     padding-bottom: 130px;
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.feedback-table-element:hover:not(.feedback-table-element--active) {
+    background-color: var(--color-accent);
 }
 
 .feedback-table-element__title {
@@ -293,6 +312,10 @@ header {
 }
 
 .feedback-review {
+    display: none;
+}
+
+.feedback-review--active {
     display: grid;
     grid-template-areas: 
         "message message message message message message message message message message"
@@ -427,6 +450,10 @@ footer {
     .service-card {
         margin: 10px;
         width: 100%;
+    }
+
+    .image-banner {
+        border-radius: 0px;
     }
 
     .variants__title {
@@ -600,4 +627,13 @@ footer {
     .footer__copyright {
         align-self: flex-start;
     }
-} 
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+    to {
+        transform: rotate(360deg) scale(0.75);
+    }
+}

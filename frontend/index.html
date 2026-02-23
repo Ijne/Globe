@@ -19,8 +19,6 @@
             <button class="login-button">Log in</button>
         </div>
         <img class="header-banner__globe" src="static/img/globe.png">
-
-        </img>
     </div>
 </header>
 <main>
@@ -37,7 +35,7 @@
     <section class="services-cards">
         <div class="service-card__wrapper">
             <div class="service-card">
-                <img class="service-card__image" src="static/img/budget.png"></img>
+                <img class="service-card__image" src="static/img/budget.png">
                 <div class="service-card__text-area">
                     <div class="service-card__title">Control your budget</div>
                     <div class="service-card__text">Lorem ipsum dolor sit amet, consectetur
@@ -50,7 +48,7 @@
         </div>
         <div class="service-card__wrapper">
             <div class="service-card">
-                <img class="service-card__image" src="static/img/table.png"></img>
+                <img class="service-card__image" src="static/img/table.png">
                 <div class="service-card__text-area">
                     <div class="service-card__title">Pretty an usefull tables</div>
                     <div class="service-card__text">Lorem ipsum dolor sit amet, consectetur
@@ -63,7 +61,7 @@
         </div>
         <div class="service-card__wrapper">
             <div class="service-card">
-                <img class="service-card__image" src="static/img/vault.png"></img>
+                <img class="service-card__image" src="static/img/vault.png">
                 <div class="service-card__text-area">
                     <div class="service-card__title">And something else</div>
                     <div class="service-card__text">Lorem ipsum dolor sit amet, consectetur
@@ -79,23 +77,35 @@
         <div class="feedback">
             <div class="feedback__title">Hear From Our Happy Clients</div>
             <div class="feedback-table">
-                <div class="feedback-table-element feedback-table-element--active">
+                <button class="feedback-table-element feedback-table-element--active" id="1">
                     <div class="feedback-table-element__title">Graphic designer</div>
                     <div class="feedback-table-element__place">Ontarion, Canada</div>
-                </div>
-                <div class="feedback-table-element">
+                </button>
+                <button class="feedback-table-element" id="2">
                     <div class="feedback-table-element__title">Commercial Photographer</div>
                     <div class="feedback-table-element__place">Ontario, Canada</div>
-                </div>
-                <div class="feedback-table-element">
+                </button>
+                <button class="feedback-table-element" id="3">
                     <div class="feedback-table-element__title">Stylist</div>
                     <div class="feedback-table-element__place">Austin Texas</div>
-                </div>
+                </button>
             </div>
-            <div class="feedback-review">
-                <div class="feedback-review__message">"Managing my taxes as a freelancer used to be overwhelming, but Globe made it effortless."</div>
-                <img class="feedback-review__avatar" src="static/img/Margaret.png"></img>
+            <div class="feedback-review feedback-review--active" id="1">
+                <div class="feedback-review__message">"Globe completely transformed how I handle my freelance finances. Taxes used to give me headaches, now they're done in minutes."</div>
+                <img class="feedback-review__avatar" src="static/img/Margaret.png">
                 <div class="feedback-review__info">Taylor M., 28 years</div>
+            </div>
+
+            <div class="feedback-review" id="2">
+                <div class="feedback-review__message">"As a photographer, I need to focus on my shoots, not on paperwork. Globe handles all my invoices and tax calculations automatically."</div>
+                <img class="feedback-review__avatar" src="static/img/Jennie.png">
+                <div class="feedback-review__info">Swift A., 25 years</div>
+            </div>
+
+            <div class="feedback-review" id="3">
+                <div class="feedback-review__message">"The best decision I made for my styling business. Global payments, smart tax optimization, and zero stress about financial deadlines."</div>
+                <img class="feedback-review__avatar" src="static/img/Lisa.png">
+                <div class="feedback-review__info">Lana D., 20 years</div>
             </div>
         </div>
     </section>
@@ -109,7 +119,7 @@
                 tempore minus molestias deleniti.</div>
             <div class="variants-table">
                 <div class="variants-table-element">
-                    <img class="variants-table-element__icon" src="static/img/directory.png"></img>
+                    <img class="variants-table-element__icon" src="static/img/directory.png">
                     <div class="variants-table-element__title">For Freelancers</div>
                     <div class="variants-table-element__subtitle">Simplicity & Control</div>
                     <div class="variants-table-element__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -118,7 +128,7 @@
                 tempore minus molestias deleniti.</div>
                 </div>
                 <div class="variants-table-element">
-                    <img class="variants-table-element__icon" src="static/img/person.png"></img>
+                    <img class="variants-table-element__icon" src="static/img/person.png">
                     <div class="variants-table-element__title">For Families</div>
                     <div class="variants-table-element__subtitle">Simplicity & Control</div>
                     <div class="variants-table-element__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -127,7 +137,7 @@
                 tempore minus molestias deleniti.</div>
                 </div>
                 <div class="variants-table-element">
-                    <img class="variants-table-element__icon" src="static/img/calculator.png"></img>
+                    <img class="variants-table-element__icon" src="static/img/calculator.png">
                     <div class="variants-table-element__title">For Small Buisnesses</div>
                     <div class="variants-table-element__subtitle">Simplicity & Control</div>
                     <div class="variants-table-element__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
