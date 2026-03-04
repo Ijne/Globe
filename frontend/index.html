@@ -1,6 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globe — Plan Your Trip</title>
     <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
@@ -11,6 +13,7 @@
         <button class="nav__button">Benefits</button>
         <button class="nav__button">Contacts</button>
         <button class="nav__button login-button nav__profile-button">Log in</button>
+        <button class="theme-toggle" id="themeToggle" title="Switch theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
     <div class="header-banner">
         <div class="description">
@@ -37,11 +40,8 @@
             <div class="service-card">
                 <img class="service-card__image" src="static/img/budget.png">
                 <div class="service-card__text-area">
-                    <div class="service-card__title">Control your budget</div>
-                    <div class="service-card__text">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Enim modi voluptates fugit itaque aperiam?
-                        Sint inventore expedita saepe quasi consequuntur ipsam explicabo quos
-                        a veritatis atque doloribus eaque, laudantium totam.
+                    <div class="service-card__title">Track your budget</div>
+                    <div class="service-card__text">Plan ahead and stay on top of every expense. Add costs, watch your balance in real time, and arrive at your destination without any financial surprises.
                     </div>
                 </div>
             </div>
@@ -50,11 +50,8 @@
             <div class="service-card">
                 <img class="service-card__image" src="static/img/table.png">
                 <div class="service-card__text-area">
-                    <div class="service-card__title">Pretty an usefull tables</div>
-                    <div class="service-card__text">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Enim modi voluptates fugit itaque aperiam?
-                        Sint inventore expedita saepe quasi consequuntur ipsam explicabo quos
-                        a veritatis atque doloribus eaque, laudantium totam.
+                    <div class="service-card__title">Plan your itinerary</div>
+                    <div class="service-card__text">Organize every day of your trip in one place. From morning sightseeing to evening dinners — keep your schedule clear and your journey stress-free.
                     </div>
                 </div>
             </div>
@@ -63,11 +60,8 @@
             <div class="service-card">
                 <img class="service-card__image" src="static/img/vault.png">
                 <div class="service-card__text-area">
-                    <div class="service-card__title">And something else</div>
-                    <div class="service-card__text">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Enim modi voluptates fugit itaque aperiam?
-                        Sint inventore expedita saepe quasi consequuntur ipsam explicabo quos
-                        a veritatis atque doloribus eaque, laudantium totam.
+                    <div class="service-card__title">Save travel notes</div>
+                    <div class="service-card__text">Jot down hotel addresses, local tips, must-see spots, and ideas for every destination. Build your personal travel journal with every new adventure.
                     </div>
                 </div>
             </div>
@@ -91,19 +85,19 @@
                 </button>
             </div>
             <div class="feedback-review feedback-review--active" id="1">
-                <div class="feedback-review__message">"Globe completely transformed how I handle my freelance finances. Taxes used to give me headaches, now they're done in minutes."</div>
+                <div class="feedback-review__message">"Globe made planning our two-week trip through Europe so easy. Budget tracker, packing checklist, itinerary — all in one place. We didn't miss a single thing!"</div>
                 <img class="feedback-review__avatar" src="static/img/Margaret.png">
                 <div class="feedback-review__info">Taylor M., 28 years</div>
             </div>
 
             <div class="feedback-review" id="2">
-                <div class="feedback-review__message">"As a photographer, I need to focus on my shoots, not on paperwork. Globe handles all my invoices and tax calculations automatically."</div>
+                <div class="feedback-review__message">"I travel for work all the time and needed something reliable. Globe keeps every trip organized — destinations, expenses, notes — and it's all there when I need it."</div>
                 <img class="feedback-review__avatar" src="static/img/Jennie.png">
                 <div class="feedback-review__info">Swift A., 25 years</div>
             </div>
 
             <div class="feedback-review" id="3">
-                <div class="feedback-review__message">"The best decision I made for my styling business. Global payments, smart tax optimization, and zero stress about financial deadlines."</div>
+                <div class="feedback-review__message">"Planned my first solo trip to Japan with Globe. The budget tracker kept me from overspending and the packing checklist made sure I forgot nothing. Absolutely loved it!"</div>
                 <img class="feedback-review__avatar" src="static/img/Lisa.png">
                 <div class="feedback-review__info">Lana D., 20 years</div>
             </div>
@@ -113,37 +107,25 @@
     <section class="variants__wrapper">
         <div class="variants">
             <div class="variants__title">Smart Trips for everyone</div>
-            <div class="variants__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Consectetur omnis quas eaque nobis aut corporis tenetur dolorum dignissimos,
-                adipisci qui. Sapiente labore inventore cupiditate rem facilis
-                tempore minus molestias deleniti.</div>
+            <div class="variants__text">Whether you travel solo, with family, or organize a group adventure — Globe adapts to your style. Simple tools, powerful results, zero stress before every trip.</div>
             <div class="variants-table">
                 <div class="variants-table-element">
                     <img class="variants-table-element__icon" src="static/img/directory.png">
                     <div class="variants-table-element__title">For Freelancers</div>
-                    <div class="variants-table-element__subtitle">Simplicity & Control</div>
-                    <div class="variants-table-element__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Consectetur omnis quas eaque nobis aut corporis tenetur dolorum dignissimos,
-                adipisci qui. Sapiente labore inventore cupiditate rem facilis
-                tempore minus molestias deleniti.</div>
+                    <div class="variants-table-element__subtitle">Work from anywhere</div>
+                    <div class="variants-table-element__text">Travel light and stay productive. Track trip expenses, plan your workcation schedule, and explore new cities without losing track of your projects.</div>
                 </div>
                 <div class="variants-table-element">
                     <img class="variants-table-element__icon" src="static/img/person.png">
                     <div class="variants-table-element__title">For Families</div>
-                    <div class="variants-table-element__subtitle">Simplicity & Control</div>
-                    <div class="variants-table-element__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Consectetur omnis quas eaque nobis aut corporis tenetur dolorum dignissimos,
-                adipisci qui. Sapiente labore inventore cupiditate rem facilis
-                tempore minus molestias deleniti.</div>
+                    <div class="variants-table-element__subtitle">Together & organized</div>
+                    <div class="variants-table-element__text">Coordinate the whole family in one plan. Shared packing list, group budget, and a day-by-day itinerary — so nobody gets left behind and everyone has fun.</div>
                 </div>
                 <div class="variants-table-element">
                     <img class="variants-table-element__icon" src="static/img/calculator.png">
-                    <div class="variants-table-element__title">For Small Buisnesses</div>
-                    <div class="variants-table-element__subtitle">Simplicity & Control</div>
-                    <div class="variants-table-element__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Consectetur omnis quas eaque nobis aut corporis tenetur dolorum dignissimos,
-                adipisci qui. Sapiente labore inventore cupiditate rem facilis
-                tempore minus molestias deleniti.</div>
+                    <div class="variants-table-element__title">For Groups</div>
+                    <div class="variants-table-element__subtitle">Efficiency & Teamwork</div>
+                    <div class="variants-table-element__text">Organize group travel, split shared expenses, and keep everyone aligned. From corporate retreats to friend trips — Globe handles the planning so you can enjoy the journey.</div>
                 </div>
             </div>
         </div>
@@ -151,12 +133,51 @@
 </main>
 <footer>
     <div class="footer__title">Globe</div>
-    <div class="footer__text">Financial Clarity You Can Trust
-    Trusted financial guidance for every stage of life and buisness since 2026
+    <div class="footer__text">Your Journey Starts Here<br>
+    Helping travelers plan smarter, explore more, and worry less — since 2026.
     </div>
     <button class="login-button footer__button">Login</button>
     <div class="footer__copyright">© 2025 All Rights Reserved</div>
 </footer>
+<div class="modal-overlay" id="authModal">
+    <div class="modal">
+        <button class="modal__close" id="modalClose"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <div class="modal-tabs">
+            <button class="modal-tab modal-tab--active" id="tabLogin">Log in</button>
+            <button class="modal-tab" id="tabRegister">Register</button>
+        </div>
+        <form class="modal-form" id="loginForm">
+            <div class="modal-form__field">
+                <label class="modal-form__label">Email</label>
+                <input class="modal-form__input" type="email" id="loginEmail" placeholder="your@email.com" required>
+            </div>
+            <div class="modal-form__field">
+                <label class="modal-form__label">Password</label>
+                <input class="modal-form__input" type="password" id="loginPassword" placeholder="••••••••" required>
+            </div>
+            <div class="modal-form__error" id="loginError"></div>
+            <button class="login-button modal-form__submit" type="submit">Log in</button>
+        </form>
+        <form class="modal-form" id="registerForm" style="display:none">
+            <div class="modal-form__field">
+                <label class="modal-form__label">Name</label>
+                <input class="modal-form__input" type="text" id="regName" placeholder="Your name" required>
+            </div>
+            <div class="modal-form__field">
+                <label class="modal-form__label">Email</label>
+                <input class="modal-form__input" type="email" id="regEmail" placeholder="your@email.com" required>
+            </div>
+            <div class="modal-form__field">
+                <label class="modal-form__label">Password</label>
+                <input class="modal-form__input" type="password" id="regPassword" placeholder="••••••••" required>
+            </div>
+            <div class="modal-form__error" id="registerError"></div>
+            <button class="login-button modal-form__submit" type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+<script src="static/js/theme.js"></script>
 <script src="static/js/index.js"></script>
 </body>
 </html>

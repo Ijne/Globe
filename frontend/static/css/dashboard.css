@@ -1,0 +1,338 @@
+/* ===== Dashboard Styles ===== */
+
+/* Nav */
+.dash-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.dash-nav__logo {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.dash-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dash-nav__username {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 15px;
+}
+
+.dash-nav__logout {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.dash-nav__logout:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transition: 0.3s ease;
+}
+
+/* Dashboard Header */
+.dash-header {
+    padding: 70px 10% 40px;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+.dash-header__greeting {
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dash-header__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Trips Section */
+.trips-section {
+    padding: 60px 10%;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.trips-section__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.trips-section__title {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.trips-section__add-btn {
+    cursor: pointer;
+    font-size: 15px;
+    height: 46px;
+    width: 140px;
+}
+
+/* Trip Cards Grid */
+.trips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Trip Card */
+.trip-card {
+    background-color: var(--color-accent);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--color-primary);
+    transition: transform 0.2s ease;
+}
+
+.trip-card:hover {
+    transform: translateY(-4px);
+}
+
+.trip-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.trip-card__destination {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.trip-card__delete {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.4;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: opacity 0.2s, background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.trip-card__delete:hover {
+    opacity: 1;
+    background-color: rgba(192, 57, 43, 0.1);
+    color: #c0392b;
+}
+
+.trip-card__name {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.trip-card__dates {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--color-secondary);
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    align-self: flex-start;
+}
+
+.trip-card__budget {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.trip-card__open {
+    margin-top: 10px;
+    cursor: pointer;
+    height: 42px;
+    width: 120px;
+    font-size: 14px;
+}
+
+/* Empty State */
+.trips-empty {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 80px 20px;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.trips-empty--visible {
+    display: flex;
+}
+
+.trips-empty__icon {
+    font-size: 70px;
+    opacity: 0.3;
+}
+
+.trips-empty__text {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.7;
+    max-width: 400px;
+}
+
+/* Delete Confirm Modal */
+.modal--small {
+    max-width: 360px;
+}
+
+.delete-modal__text {
+    font-size: 16px;
+    margin-bottom: 30px;
+    opacity: 0.7;
+}
+
+.delete-modal__buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.delete-modal__confirm {
+    cursor: pointer;
+    background-color: #c0392b;
+}
+
+.delete-modal__confirm:hover {
+    background-color: #922b21;
+    transition: 0.2s ease;
+}
+
+.delete-modal__cancel {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.delete-modal__cancel:hover {
+    background-color: var(--color-accent);
+    transition: 0.2s ease;
+}
+
+/* Optional label hint */
+.modal-form__optional {
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .trips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .dash-header {
+        padding: 40px 5% 30px;
+    }
+
+    .dash-header__greeting {
+        font-size: 32px;
+    }
+
+    .trips-section {
+        padding: 40px 5%;
+    }
+
+    .trips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trips-section__title {
+        font-size: 26px;
+    }
+}
+
+/* ===== Dark Theme: Dashboard ===== */
+[data-theme="dark"] .dash-nav {
+    background-color: #1a2e1f;
+}
+
+[data-theme="dark"] .dash-nav__logo {
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .dash-nav__username {
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .dash-nav__logout {
+    background-color: transparent;
+    border-color: #A0F1BD;
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .dash-nav__logout:hover {
+    background-color: #A0F1BD;
+    color: #0d1a10;
+}
+
+[data-theme="dark"] .dash-header {
+    background-color: #111a14;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trips-section__title {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card {
+    background-color: #1e3326;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card__dates {
+    background-color: #2e5c35;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card__delete {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card__name {
+    color: #c0e8ca;
+}
+
+[data-theme="dark"] .trips-empty {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .delete-modal__text {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .modal-form__optional {
+    color: #A0F1BD;
+}
