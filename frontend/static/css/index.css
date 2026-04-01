@@ -44,15 +44,16 @@ header {
     width: 100%;
     height: 100vh;
     z-index: 90;
-    align-items: flex-start;
+    align-items: stretch;
     border: none;
-    background-color: rgba(160, 241, 189, 0.95);
+    background-color: rgba(160, 241, 189, 0.98);
+    padding: 72px 20px 20px;
+    gap: 8px;
+    overflow-y: auto;
 }
 
 .nav.nav--open :last-child {
-    position: absolute;
-    bottom: 0;
-
+    position: static;
 }
 
 .nav__button:hover {
@@ -69,7 +70,7 @@ header {
 }
 
 .nav.nav--open .burger-button {
-    height: 100px;
+    height: 48px;
 }
 
 .burger-button:hover {
@@ -88,8 +89,12 @@ header {
 }
 
 .nav.nav--open .nav__button {
-    font-size: 30px;
-    height: 100px;
+    font-size: 18px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin-left: 0;
 }
 
 .login-button {
@@ -108,11 +113,13 @@ header {
 }
 
 .nav.nav--open .login-button {
-    align-items: flex-end;
-    height: 100px;
+    height: 54px;
     width: 100%;
     margin-left: 0px;
-    border-radius: 0px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav__profile-button {
@@ -416,9 +423,12 @@ footer {
     display: flex;
     align-self: flex-end;
     grid-area: text;
-    font-size: 15px;
-    padding-right: 150px;
-}
+    font-size: 18px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin-left: 0;
 
 .footer__button {
     grid-area: button;
@@ -644,10 +654,13 @@ footer {
     bottom: 20px;
     right: 20px;
     width: 50px;
-    height: 50px;
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
+    height: 54px;
+    width: 100%;
+    margin-left: 0px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     display: flex;
     align-items: center;
