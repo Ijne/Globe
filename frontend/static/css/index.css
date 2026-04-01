@@ -640,28 +640,31 @@ footer {
 
 /* ===== Theme Toggle Button ===== */
 .theme-toggle {
-    background: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary);
+    color: white;
     border: none;
-    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    padding: 5px 8px;
-    border-radius: 10px;
-    transition: background-color 0.2s;
-    line-height: 1;
-    margin-left: 8px;
-    flex-shrink: 0;
+    z-index: 160;
+    box-shadow: 0 4px 12px rgba(46, 79, 33, 0.25);
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(46, 79, 33, 0.15);
+    background-color: #3b6530;
+    transform: scale(1.05);
 }
 
-.nav.nav--open .theme-toggle {
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    z-index: 100;
-    background-color: var(--color-accent);
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 /* ===== Dark Theme ===== */
@@ -931,4 +934,25 @@ footer {
 
 .modal-form__submit:hover {
     cursor: pointer;
+}
+
+/* Dark theme for theme toggle */
+[data-theme="dark"] .theme-toggle {
+    background-color: #A0F1BD;
+    color: #0d1a10;
+    box-shadow: 0 4px 12px rgba(160, 241, 189, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: #c8f8da;
+}
+
+/* Mobile theme toggle */
+@media (max-width: 800px) {
+    .theme-toggle {
+        bottom: 16px;
+        right: 16px;
+        width: 46px;
+        height: 46px;
+    }
 }
