@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('navUsername').textContent = currentUser.name;
-    document.getElementById('greeting').textContent = 'Welcome back, ' + currentUser.name + '!';
+    document.getElementById('greeting').textContent = 'С возвращением, ' + currentUser.name + '!';
 
     document.getElementById('logoutBtn').addEventListener('click', function() {
         localStorage.removeItem('globe_current_user');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatDate(dateStr) {
         if (!dateStr) return '';
         var d = new Date(dateStr + 'T00:00:00');
-        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        return d.toLocaleDateString('ru-RU', { month: 'short', day: 'numeric', year: 'numeric' });
     }
 
     function renderTrips() {
@@ -47,18 +47,18 @@ document.addEventListener('DOMContentLoaded', function() {
             card.className = 'trip-card';
 
             var budgetHTML = trip.budget
-                ? '<div class="trip-card__budget">Budget: $' + Number(trip.budget).toLocaleString() + '</div>'
+                ? '<div class="trip-card__budget">Бюджет: $' + Number(trip.budget).toLocaleString() + '</div>'
                 : '';
 
             card.innerHTML =
                 '<div class="trip-card__header">' +
                     '<div class="trip-card__destination">' + escapeHTML(trip.destination) + '</div>' +
-                    '<button class="trip-card__delete" data-id="' + trip.id + '" title="Delete trip"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
+                    '<button class="trip-card__delete" data-id="' + trip.id + '" title="Удалить поездку"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
                 '</div>' +
                 '<div class="trip-card__name">' + escapeHTML(trip.name) + '</div>' +
                 '<div class="trip-card__dates">' + formatDate(trip.startDate) + ' — ' + formatDate(trip.endDate) + '</div>' +
                 budgetHTML +
-                '<button class="login-button trip-card__open" data-id="' + trip.id + '">Open →</button>';
+                '<button class="login-button trip-card__open" data-id="' + trip.id + '">Открыть →</button>';
 
             grid.appendChild(card);
         });
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var error = document.getElementById('newTripError');
 
         if (startDate && endDate && endDate < startDate) {
-            error.textContent = 'End date must be after start date';
+            error.textContent = 'Дата окончания должна быть позже даты начала';
             return;
         }
 

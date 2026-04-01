@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const users = JSON.parse(localStorage.getItem('globe_users')) || [];
         const user = users.find(function(u) { return u.email === email && u.password === password; });
         if (!user) {
-            document.getElementById('loginError').textContent = 'Invalid email or password';
+            document.getElementById('loginError').textContent = 'Неверная почта или пароль';
             return;
         }
         localStorage.setItem('globe_current_user', JSON.stringify({ name: user.name, email: user.email }));
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('regPassword').value;
         const users = JSON.parse(localStorage.getItem('globe_users')) || [];
         if (users.find(function(u) { return u.email === email; })) {
-            document.getElementById('registerError').textContent = 'This email is already registered';
+            document.getElementById('registerError').textContent = 'Эта почта уже зарегистрирована';
             return;
         }
         users.push({ name: name, email: email, password: password });

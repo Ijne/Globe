@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatDate(dateStr) {
         if (!dateStr) return '';
         var d = new Date(dateStr + 'T00:00:00');
-        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        return d.toLocaleDateString('ru-RU', { month: 'short', day: 'numeric', year: 'numeric' });
     }
 
     var trip = getTrip();
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!trip.destination) return;
         
         var weatherEl = document.getElementById('tripWeather');
-        weatherEl.innerHTML = '<div class="trip-weather__status">Loading weather...</div>';
+        weatherEl.innerHTML = '<div class="trip-weather__status">Загрузка погоды...</div>';
         
         fetch('/api/weather?city=' + encodeURIComponent(trip.destination))
             .then(function(res) { return res.json(); })
@@ -76,31 +76,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<div class="trip-weather__temp">' + Math.round(data.temperature) + '°C</div>' +
                     '<div class="trip-weather__description">' + desc + '</div>' +
                     '<div class="trip-weather__details">' +
-                        '<span>Wind: ' + Math.round(data.windSpeed) + ' km/h</span>' +
+                        '<span>Ветер: ' + Math.round(data.windSpeed) + ' км/ч</span>' +
                         '<span>' + data.city + ', ' + data.country + '</span>' +
                     '</div>';
             })
             .catch(function(e) {
-                weatherEl.innerHTML = '<div class="trip-weather__status">Could not load weather</div>';
+                    weatherEl.innerHTML = '<div class="trip-weather__status">Не удалось загрузить погоду</div>';
             });
     }
     
     function getWeatherDescription(code) {
         var descriptions = {
-            0: 'Clear sky',
-            1: 'Mainly clear',
-            2: 'Partly cloudy',
-            3: 'Cloudy',
-            45: 'Foggy',
-            48: 'Foggy',
-            51: 'Light rain',
-            53: 'Moderate rain',
-            55: 'Heavy rain',
-            80: 'Rain showers',
-            81: 'Heavy rain showers',
-            99: 'Thunderstorm'
+            0: 'Ясно',
+            1: 'Преимущественно ясно',
+            2: 'Переменная облачность',
+            3: 'Пасмурно',
+            45: 'Туман',
+            48: 'Туман',
+            51: 'Небольшой дождь',
+            53: 'Умеренный дождь',
+            55: 'Сильный дождь',
+            80: 'Ливневый дождь',
+            81: 'Сильный ливень',
+            99: 'Гроза'
         };
-        return descriptions[code] || 'Weather';
+        return descriptions[code] || 'Погода';
     }
     
     loadWeather();
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (days > 0) {
             var daysBadge = document.createElement('span');
             daysBadge.className = 'trip-hero__meta-badge';
-            daysBadge.textContent = days + (days === 1 ? ' day' : ' days');
+            daysBadge.textContent = days + (days === 1 ? ' день' : ' дней');
             meta.appendChild(daysBadge);
         }
     }
@@ -155,10 +155,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var remainEl = document.getElementById('budgetRemaining');
         if (remaining < 0) {
-            remainEl.textContent = 'Over budget by $' + Math.abs(remaining).toLocaleString();
+            remainEl.textContent = 'Превышение бюджета на $' + Math.abs(remaining).toLocaleString();
             remainEl.classList.add('trip-budget__remaining--over');
         } else {
-            remainEl.textContent = 'Remaining: $' + remaining.toLocaleString();
+            remainEl.textContent = 'Осталось: $' + remaining.toLocaleString();
             remainEl.classList.remove('trip-budget__remaining--over');
         }
 
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
             progress.textContent = '';
         } else {
             var done = items.filter(function(i) { return i.done; }).length;
-            progress.textContent = done + ' / ' + items.length + ' items packed';
+            progress.textContent = done + ' / ' + items.length + ' вещей собрано';
         }
     }
 
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
             trip = getTrip();
             trip.notes = notesArea.value;
             saveTrip(trip);
-            savedLabel.textContent = 'Saved ✓';
+            savedLabel.textContent = 'Сохранено ✓';
             savedLabel.classList.add('trip-notes__saved--visible');
             setTimeout(function() {
                 savedLabel.classList.remove('trip-notes__saved--visible');

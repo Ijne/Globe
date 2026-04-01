@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Globe — Trip</title>
+    <title>Globe — Поездка</title>
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="static/css/dashboard.css">
     <link rel="stylesheet" href="static/css/trip.css">
@@ -14,12 +14,12 @@
         <a class="dash-nav__logo" href="index.html">Globe</a>
         <div class="dash-nav__right">
             <span class="dash-nav__username" id="navUsername"></span>
-            <button class="login-button nav__profile-button dash-nav__logout" id="logoutBtn">Log out</button>
+            <button class="login-button nav__profile-button dash-nav__logout" id="logoutBtn">Выйти</button>
         </div>
     </div>
     <div class="trip-hero" id="tripHero">
-        <a class="trip-hero__back" href="dashboard.html">← My Trips</a>
-        <div class="trip-hero__destination" id="heroDestination">Loading…</div>
+        <a class="trip-hero__back" href="dashboard.html">← Мои поездки</a>
+        <div class="trip-hero__destination" id="heroDestination">Загрузка…</div>
         <div class="trip-hero__name" id="heroName"></div>
         <div class="trip-hero__meta" id="heroMeta"></div>
     </div>
@@ -28,20 +28,20 @@
 <main>
     <div class="trip-content">
         <section class="trip-section">
-            <div class="trip-section__title">Live Weather</div>
+            <div class="trip-section__title">Погода сейчас</div>
             <div class="trip-weather" id="tripWeather">
-                <div class="trip-weather__status">Loading weather...</div>
+                <div class="trip-weather__status">Загрузка погоды...</div>
             </div>
         </section>
         <section class="trip-section" id="budgetSection" style="display:none">
-            <div class="trip-section__title">Budget</div>
+            <div class="trip-section__title">Бюджет</div>
             <div class="trip-budget">
                 <div class="trip-budget__total">
-                    <span class="trip-budget__label">Total budget:</span>
+                    <span class="trip-budget__label">Общий бюджет:</span>
                     <span class="trip-budget__value" id="budgetTotal">$0</span>
                 </div>
                 <div class="trip-budget__spent-row">
-                    <span class="trip-budget__label">Spent:</span>
+                    <span class="trip-budget__label">Потрачено:</span>
                     <span class="trip-budget__value" id="budgetSpent">$0</span>
                 </div>
                 <div class="trip-budget__bar-wrapper">
@@ -50,28 +50,28 @@
                 <div class="trip-budget__remaining" id="budgetRemaining"></div>
 
                 <div class="trip-budget__add">
-                    <input class="modal-form__input trip-budget__input" type="text" id="expenseLabel" placeholder="Description (e.g. Hotel)">
-                    <input class="modal-form__input trip-budget__input trip-budget__input--amount" type="number" id="expenseAmount" placeholder="Amount ($)" min="0">
-                    <button class="login-button trip-budget__add-btn" id="addExpenseBtn">+ Add</button>
+                    <input class="modal-form__input trip-budget__input" type="text" id="expenseLabel" placeholder="Описание (например, отель)">
+                    <input class="modal-form__input trip-budget__input trip-budget__input--amount" type="number" id="expenseAmount" placeholder="Сумма ($)" min="0">
+                    <button class="login-button trip-budget__add-btn" id="addExpenseBtn">+ Добавить</button>
                 </div>
 
                 <div class="expenses-list" id="expensesList"></div>
             </div>
         </section>
         <section class="trip-section">
-            <div class="trip-section__title">Packing Checklist</div>
+            <div class="trip-section__title">Список вещей</div>
             <div class="trip-checklist">
                 <div class="trip-checklist__add">
-                    <input class="modal-form__input trip-checklist__input" type="text" id="checklistInput" placeholder="Add item (e.g. Passport)">
-                    <button class="login-button trip-checklist__add-btn" id="addChecklistBtn">+ Add</button>
+                    <input class="modal-form__input trip-checklist__input" type="text" id="checklistInput" placeholder="Добавить пункт (например, паспорт)">
+                    <button class="login-button trip-checklist__add-btn" id="addChecklistBtn">+ Добавить</button>
                 </div>
                 <div class="checklist-items" id="checklistItems"></div>
                 <div class="checklist-progress" id="checklistProgress"></div>
             </div>
         </section>
         <section class="trip-section">
-            <div class="trip-section__title">Notes</div>
-            <textarea class="trip-notes" id="tripNotes" placeholder="Write anything about your trip — hotel addresses, tips, ideas…"></textarea>
+            <div class="trip-section__title">Заметки</div>
+            <textarea class="trip-notes" id="tripNotes" placeholder="Записывайте все о поездке — адреса отелей, советы, идеи…"></textarea>
             <div class="trip-notes__saved" id="notesSaved"></div>
         </section>
 
@@ -80,11 +80,11 @@
 
 <footer>
     <div class="footer__title">Globe</div>
-    <div class="footer__text">Your Journey Starts Here<br>Helping travelers plan smarter, explore more, and worry less — since 2026.</div>
-    <div class="footer__copyright">© 2025 All Rights Reserved</div>
+    <div class="footer__text">Ваше путешествие начинается здесь<br>Помогаем путешественникам планировать умнее, видеть больше и переживать меньше — с 2026 года.</div>
+    <div class="footer__copyright">© 2025 Все права защищены</div>
 </footer>
 
-<button class="theme-toggle" id="themeToggle" title="Switch theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+<button class="theme-toggle" id="themeToggle" title="Переключить тему"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
 
 <script src="static/js/theme.js"></script>
 <script src="static/js/trip.js"></script>

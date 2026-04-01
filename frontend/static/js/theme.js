@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateButton() {
         var theme = document.documentElement.getAttribute('data-theme');
         btn.innerHTML = theme === 'dark' ? sunSVG : moonSVG;
-        btn.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+        btn.title = theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему';
     }
 
     updateButton();
