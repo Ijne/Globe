@@ -1,0 +1,20 @@
+{
+  "name": "frontendcursovaya",
+  "version": "1.0.0",
+  "description": "Client-side travel planning web app coursework",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

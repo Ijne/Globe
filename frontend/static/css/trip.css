@@ -77,6 +77,38 @@
     padding-bottom: 12px;
 }
 
+/* Weather */
+.trip-weather {
+    background-color: var(--color-accent);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.trip-weather__status {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.trip-weather__temp {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.trip-weather__description {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.trip-weather__details {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
 /* Budget */
 .trip-budget {
     background-color: var(--color-accent);
@@ -460,4 +492,9 @@
 
 [data-theme="dark"] .trip-notes__saved {
     color: #A0F1BD;
+}
+
+[data-theme="dark"] .trip-weather {
+    background-color: #1e3326;
+    color: #e0f5e8;
 }

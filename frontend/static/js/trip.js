@@ -62,6 +62,49 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('heroDestination').textContent = trip.destination;
     document.getElementById('heroName').textContent = trip.name;
 
+    function loadWeather() {
+        if (!trip.destination) return;
+        
+        var weatherEl = document.getElementById('tripWeather');
+        weatherEl.innerHTML = '<div class="trip-weather__status">Loading weather...</div>';
+        
+        fetch('/api/weather?city=' + encodeURIComponent(trip.destination))
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                var desc = getWeatherDescription(data.weatherCode);
+                weatherEl.innerHTML = 
+                    '<div class="trip-weather__temp">' + Math.round(data.temperature) + '°C</div>' +
+                    '<div class="trip-weather__description">' + desc + '</div>' +
+                    '<div class="trip-weather__details">' +
+                        '<span>Wind: ' + Math.round(data.windSpeed) + ' km/h</span>' +
+                        '<span>' + data.city + ', ' + data.country + '</span>' +
+                    '</div>';
+            })
+            .catch(function(e) {
+                weatherEl.innerHTML = '<div class="trip-weather__status">Could not load weather</div>';
+            });
+    }
+    
+    function getWeatherDescription(code) {
+        var descriptions = {
+            0: 'Clear sky',
+            1: 'Mainly clear',
+            2: 'Partly cloudy',
+            3: 'Cloudy',
+            45: 'Foggy',
+            48: 'Foggy',
+            51: 'Light rain',
+            53: 'Moderate rain',
+            55: 'Heavy rain',
+            80: 'Rain showers',
+            81: 'Heavy rain showers',
+            99: 'Thunderstorm'
+        };
+        return descriptions[code] || 'Weather';
+    }
+    
+    loadWeather();
+
     var meta = document.getElementById('heroMeta');
     if (trip.startDate && trip.endDate) {
         var dateBadge = document.createElement('span');
