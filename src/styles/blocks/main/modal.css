@@ -1,0 +1,135 @@
+﻿/* ===== Auth Modal ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay--visible {
+    display: flex;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-primary);
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.modal__close:hover {
+    opacity: 0.6;
+}
+
+.modal__title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.modal-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.modal-tab {
+    background: none;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+}
+
+.modal-tab--active {
+    opacity: 1;
+    border-bottom-color: var(--color-primary);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.modal-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-form__row {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-form__row .modal-form__field {
+    flex: 1;
+}
+
+.modal-form__label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.modal-form__input {
+    border: 1.5px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    color: var(--color-primary);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.modal-form__input:focus {
+    border-color: var(--color-primary);
+}
+
+.modal-form__error {
+    color: #c0392b;
+    font-size: 13px;
+    min-height: 16px;
+}
+
+.modal-form__submit {
+    width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.modal-form__submit:hover {
+    cursor: pointer;
+}
+

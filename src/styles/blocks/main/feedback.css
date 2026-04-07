@@ -1,0 +1,97 @@
+﻿.feedback {
+    display: grid;
+    grid-template-areas: 
+        "title title title title title"
+        "table table review review review"
+        "table table . . .";
+    padding: 100px;
+    font-family: 'Noto Sans';
+    color: var(--color-primary);
+}
+
+.feedback__title {
+    grid-area: title;
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.feedback-table {
+    display: flex;
+    flex-direction: column;
+    grid-area: table;
+    border-right: 1px solid var(--color-primary);
+    padding-right: 100px;
+}
+
+.feedback-table-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 10vh;
+    padding: 30px;
+    padding-bottom: 130px;
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.feedback-table-element:hover:not(.feedback-table-element--active) {
+    background-color: var(--color-accent);
+}
+
+.feedback-table-element__title {
+    border-top: 1px solid #2E4F21;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+.feedback-table-element--active {
+    color: white;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+}
+
+.feedback-table-element--active .feedback-table-element__title {
+    border-color: white;
+}
+
+.feedback-review {
+    display: none;
+}
+
+.feedback-review--active {
+    display: grid;
+    grid-template-areas: 
+        "message message message message message message message message message message"
+        "avatar info info info info info info info info info";
+     grid-template-columns: repeat(10, 1fr);
+    grid-area: review;
+    padding-left: 40px;
+}
+
+.feedback-review__message {
+    grid-area: message;
+    font-size: 35px;
+    padding-bottom: 60px;
+}
+
+.feedback-review__avatar {
+    grid-area: avatar;
+    width: 60px;
+    border-radius: 15px;
+}
+
+.feedback-review__info {
+    display: flex;
+    align-items: center;
+    grid-area: info;
+}
+
+.image-banner {
+    width: 100%;
+    border-radius: 30px;
+}
+

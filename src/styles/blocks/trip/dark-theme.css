@@ -1,0 +1,85 @@
+﻿/* ===== Dark Theme: Trip ===== */
+[data-theme="dark"] .trip-hero {
+    background-color: #060f08;
+}
+
+[data-theme="dark"] .trip-section__title {
+    color: #e0f5e8;
+    border-bottom-color: #1e3326;
+}
+
+[data-theme="dark"] .trip-budget {
+    background-color: #1e3326;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-budget__bar-wrapper {
+    background-color: #2e5c35;
+}
+
+[data-theme="dark"] .trip-budget__label {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .expense-item {
+    background-color: #111a14;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .expense-item__delete {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-checklist {
+    background-color: #1e3326;
+}
+
+[data-theme="dark"] .checklist-item {
+    background-color: #111a14;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .checklist-item:hover {
+    background-color: #2e5c35;
+}
+
+[data-theme="dark"] .checklist-item__checkbox {
+    border-color: #A0F1BD;
+}
+
+[data-theme="dark"] .checklist-item--done .checklist-item__checkbox {
+    background-color: #A0F1BD;
+    color: #0d1a10;
+}
+
+[data-theme="dark"] .checklist-item__delete {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .checklist-progress {
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .trip-notes {
+    background-color: #111a14;
+    color: #e0f5e8;
+    border-color: #2e5c35;
+}
+
+[data-theme="dark"] .trip-notes::placeholder {
+    color: #4a7a54;
+}
+
+[data-theme="dark"] .trip-notes:focus {
+    border-color: #A0F1BD;
+}
+
+[data-theme="dark"] .trip-notes__saved {
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .trip-weather {
+    background-color: #1e3326;
+    color: #e0f5e8;
+}
+

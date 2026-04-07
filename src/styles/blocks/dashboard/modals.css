@@ -1,0 +1,45 @@
+﻿/* Delete Confirm Modal */
+.modal--small {
+    max-width: 360px;
+}
+
+.delete-modal__text {
+    font-size: 16px;
+    margin-bottom: 30px;
+    opacity: 0.7;
+}
+
+.delete-modal__buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.delete-modal__confirm {
+    cursor: pointer;
+    background-color: #c0392b;
+}
+
+.delete-modal__confirm:hover {
+    background-color: #922b21;
+    transition: 0.2s ease;
+}
+
+.delete-modal__cancel {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.delete-modal__cancel:hover {
+    background-color: var(--color-accent);
+    transition: 0.2s ease;
+}
+
+/* Optional label hint */
+.modal-form__optional {
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0.6;
+}
+

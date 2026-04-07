@@ -1,0 +1,44 @@
+﻿/* Checklist progress */
+.checklist-progress {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.65;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-primary);
+}
+
+/* Notes */
+.trip-notes {
+    width: 100%;
+    min-height: 200px;
+    border: 1.5px solid var(--color-secondary);
+    border-radius: 16px;
+    padding: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    color: var(--color-primary);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.6;
+}
+
+.trip-notes:focus {
+    border-color: var(--color-primary);
+}
+
+.trip-notes__saved {
+    font-size: 13px;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-primary);
+    opacity: 0;
+    margin-top: 8px;
+    transition: opacity 0.3s;
+    font-weight: 500;
+}
+
+.trip-notes__saved--visible {
+    opacity: 0.6;
+}
+

@@ -1,0 +1,63 @@
+﻿/* ===== Dark Theme: Dashboard ===== */
+[data-theme="dark"] .dash-nav {
+    background-color: #1a2e1f;
+}
+
+[data-theme="dark"] .dash-nav__logo {
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .dash-nav__username {
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .dash-nav__logout {
+    background-color: transparent;
+    border-color: #A0F1BD;
+    color: #A0F1BD;
+}
+
+[data-theme="dark"] .dash-nav__logout:hover {
+    background-color: #A0F1BD;
+    color: #0d1a10;
+}
+
+[data-theme="dark"] .dash-header {
+    background-color: #111a14;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trips-section__title {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card {
+    background-color: #1e3326;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card__dates {
+    background-color: #2e5c35;
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card__delete {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-card__name {
+    color: #c0e8ca;
+}
+
+[data-theme="dark"] .trips-empty {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .delete-modal__text {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .modal-form__optional {
+    color: #A0F1BD;
+}
+

@@ -1,0 +1,20 @@
+﻿/* Dark theme for theme toggle */
+[data-theme="dark"] .theme-toggle {
+    background-color: #A0F1BD;
+    color: #0d1a10;
+    box-shadow: 0 4px 12px rgba(160, 241, 189, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: #c8f8da;
+}
+
+/* Mobile theme toggle */
+@media (max-width: 800px) {
+    .theme-toggle {
+        bottom: 16px;
+        right: 16px;
+        width: 46px;
+        height: 46px;
+    }
+}

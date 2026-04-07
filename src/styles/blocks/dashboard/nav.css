@@ -1,0 +1,43 @@
+﻿/* ===== Dashboard Styles ===== */
+
+/* Nav */
+.dash-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.dash-nav__logo {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.dash-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dash-nav__username {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 15px;
+}
+
+.dash-nav__logout {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.dash-nav__logout:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transition: 0.3s ease;
+}
+

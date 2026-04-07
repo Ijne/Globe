@@ -1,0 +1,14 @@
+@import url('../blocks/main/base.css');
+@import url('../blocks/main/nav.css');
+@import url('../blocks/main/footer.css');
+@import url('../blocks/main/modal.css');
+@import url('../blocks/main/theme-toggle.css');
+@import url('../blocks/main/dark-theme.css');
+@import url('../blocks/main/theme-toggle-extra.css');
+
+@import url('../blocks/dashboard/nav.css');
+@import url('../blocks/dashboard/header.css');
+@import url('../blocks/dashboard/trips.css');
+@import url('../blocks/dashboard/modals.css');
+@import url('../blocks/dashboard/responsive.css');
+@import url('../blocks/dashboard/dark-theme.css');

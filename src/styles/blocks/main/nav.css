@@ -1,0 +1,107 @@
+﻿.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #A0F1BD;
+}
+
+.nav.nav--open {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 90;
+    align-items: flex-start;
+    border: none;
+    background-color: rgba(160, 241, 189, 0.95);
+}
+
+.nav.nav--open :last-child {
+    position: absolute;
+    bottom: 0;
+
+}
+
+.nav__button:hover {
+    transform: translateY(-3px);
+}
+
+.burger-button {
+    display: none;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.nav.nav--open .burger-button {
+    height: 100px;
+}
+
+.burger-button:hover {
+    cursor: pointer;
+    background-color: var(--color-accent);
+}
+
+.nav__button {
+    background: none;
+    color: #2E4F21;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.nav.nav--open .nav__button {
+    font-size: 30px;
+    height: 100px;
+}
+
+.login-button {
+   border: none;
+   font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+   background: #2E4F21;
+   color: white;
+   border-radius: 30px;
+   height: 50px;
+    min-width: 150px;
+    width: auto;
+    padding: 0 18px;
+    white-space: nowrap;
+}
+
+.login-button:hover {
+    background-color: var(--color-accent);
+    transition: 0.3s ease;
+}
+
+.nav.nav--open .login-button {
+    align-items: flex-end;
+    height: 100px;
+    width: 100%;
+    margin-left: 0px;
+    border-radius: 0px;
+}
+
+.nav__profile-button {
+   margin-left: 20px;
+   margin-right: 20px;
+   height: 40px;
+    min-width: 96px;
+    width: auto;
+    padding: 0 14px;
+}
+
+.nav.nav--open .nav__profile-button {
+    margin: 0px;
+}
+

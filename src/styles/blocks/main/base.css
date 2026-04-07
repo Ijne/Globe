@@ -1,0 +1,36 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap&subset=cyrillic');
+
+:root {
+    --color-primary: #2E4F21;
+    --color-secondary: #A0F1BD;
+    --color-accent: #D2F8DC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+html {
+    margin: 0px;
+    scroll-behavior: smooth;
+}
+
+#servicesSection,
+#feedbackSection,
+#benefitsSection,
+#contactsSection {
+    scroll-margin-top: 90px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+

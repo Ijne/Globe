@@ -1,0 +1,45 @@
+﻿.variants {
+    display: grid;
+    grid-template-areas: 
+    "title text"
+    "table table";
+    padding: 50px;
+    padding-top: 100px;
+    font-family: 'Noto Sans';
+    color: var(--color-primary);
+}
+
+.variants__title {
+    grid-area: title;
+    font-size: 50px;
+}
+
+.variants__text {
+    grid-area: text;
+}
+
+.variants-table {
+    display: flex;
+    flex-direction: row;
+    grid-area: table;
+    padding-top: 150px;
+}
+
+.variants-table-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-left: 1px solid var(--color-primary);
+    height: 35vh;
+}
+
+.variants-table-element__icon {
+    width: 30px;
+}
+
+.variants-table-element__title {
+    font-size: 30px;
+}
+

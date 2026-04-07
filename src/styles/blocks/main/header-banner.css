@@ -1,0 +1,35 @@
+﻿.header-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A0F1BD;
+    margin-top: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 60vh;
+}
+
+.header-banner__globe {
+    animation: rotate 20s linear infinite alternate;
+    height: 90%;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans';
+    width: 50%;
+}
+
+.description__title {
+    font-weight: medium;
+    margin-bottom: 20px;
+    font-size: 56px;
+    color: #2E4F21;
+}
+
+.description__subtitle {
+    color: #2E4F21;
+    margin-bottom: 40px;
+}
+

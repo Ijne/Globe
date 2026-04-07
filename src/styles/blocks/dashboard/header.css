@@ -1,0 +1,20 @@
+﻿/* Dashboard Header */
+.dash-header {
+    padding: 70px 10% 40px;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+.dash-header__greeting {
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dash-header__subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+

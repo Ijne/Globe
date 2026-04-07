@@ -15,6 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, 'frontend')));
+app.use('/src', express.static(path.join(__dirname, 'src')));
 
 app.get('/api/weather', async (req, res) => {
     const city = String(req.query.city || '').trim();

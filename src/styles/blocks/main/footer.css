@@ -1,0 +1,40 @@
+﻿footer {
+    display: grid;
+    grid-template-areas: 
+    "title button"
+    "text copyright";
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+    padding-left: 60px;
+    height: 50vh;
+    background-color: var(--color-primary);
+    font-family: 'Noto Sans';
+    color: white;
+}
+
+.footer__title {
+    font-size: 35px;
+    grid-area: title;
+}
+
+.footer__text {
+    display: flex;
+    align-self: flex-end;
+    grid-area: text;
+    font-size: 15px;
+    padding-right: 150px;
+}
+
+.footer__button {
+    grid-area: button;
+    background-color: white;
+    color: var(--color-primary);
+}
+
+.footer__copyright {
+    display: flex;
+    align-self: flex-end;
+    font-size: 15px;
+    grid-area: copyright;
+}
+

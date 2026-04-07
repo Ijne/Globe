@@ -1,0 +1,132 @@
+﻿/* Budget */
+.trip-budget {
+    background-color: var(--color-accent);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.trip-budget__total,
+.trip-budget__spent-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.trip-budget__label {
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.trip-budget__value {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.trip-budget__bar-wrapper {
+    background-color: var(--color-secondary);
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    margin: 4px 0;
+}
+
+.trip-budget__bar {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.trip-budget__bar--over {
+    background-color: #c0392b;
+}
+
+.trip-budget__remaining {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.trip-budget__remaining--over {
+    color: #c0392b;
+}
+
+.trip-budget__add {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.trip-budget__input {
+    flex: 1;
+    min-width: 140px;
+}
+
+.trip-budget__input--amount {
+    max-width: 160px;
+}
+
+.trip-budget__add-btn {
+    cursor: pointer;
+    height: 46px;
+    min-width: 122px;
+    width: auto;
+    padding: 0 14px;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* Expenses list */
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 15px;
+}
+
+.expense-item__label {
+    font-weight: 500;
+}
+
+.expense-item__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.expense-item__amount {
+    font-weight: 700;
+}
+
+.expense-item__delete {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.35;
+    transition: opacity 0.2s;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.expense-item__delete:hover {
+    opacity: 1;
+    color: #c0392b;
+}
+

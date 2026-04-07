@@ -1,0 +1,54 @@
+﻿/* Content */
+.trip-content {
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Section */
+.trip-section {
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-primary);
+}
+
+.trip-section__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 12px;
+}
+
+/* Weather */
+.trip-weather {
+    background-color: var(--color-accent);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.trip-weather__status {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.trip-weather__temp {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.trip-weather__description {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.trip-weather__details {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
