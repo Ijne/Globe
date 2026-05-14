@@ -2,6 +2,7 @@ import { StorageService } from '../services/storage-service.js';
 import { WeatherService } from '../services/weather-service.js';
 import { escapeHTML } from '../utils/dom.js';
 import { formatDateRu, tripDaysCount } from '../utils/date.js';
+import { formatCurrency, normalizeCurrency } from '../utils/currency.js';
 
 export class TripPage {
     constructor() {
@@ -41,10 +42,13 @@ export class TripPage {
 
         this.renderHero(trip);
         this.ensureTripCollections(trip);
+        this.bindCompletionEvents();
+        this.bindCurrencyEvents();
         this.bindBudgetEvents();
         this.bindChecklistEvents();
         this.bindNotesEvents();
 
+        this.renderCompletionState();
         this.renderBudget();
         this.renderChecklist();
         this.renderNotes();
@@ -110,9 +114,144 @@ export class TripPage {
             trip.notes = '';
             changed = true;
         }
+        if (typeof trip.isCompleted !== 'boolean') {
+            trip.isCompleted = false;
+            changed = true;
+        }
+        if (!trip.currency) {
+            trip.currency = 'USD';
+            changed = true;
+        }
+        if (!trip.completedAt) {
+            trip.completedAt = '';
+            changed = true;
+        }
 
         if (changed) {
             this.saveTrip(trip);
+        }
+    }
+
+    isTripCompleted() {
+        const trip = this.getTrip();
+        return Boolean(trip && trip.isCompleted);
+    }
+
+    getTripCurrency() {
+        const trip = this.getTrip();
+        return normalizeCurrency(trip?.currency || 'USD');
+    }
+
+    bindCurrencyEvents() {
+        const currencySelect = document.getElementById('currencySelect');
+        if (!currencySelect) return;
+
+        currencySelect.value = this.getTripCurrency();
+
+        currencySelect.addEventListener('change', () => {
+            if (this.isTripCompleted()) return;
+
+            const trip = this.getTrip();
+            if (!trip) return;
+            trip.currency = normalizeCurrency(currencySelect.value);
+            this.saveTrip(trip);
+            this.renderBudget();
+            this.renderCompletionState();
+        });
+    }
+
+    bindCompletionEvents() {
+        const finishButton = document.getElementById('finishTripBtn');
+        if (!finishButton) return;
+
+        finishButton.addEventListener('click', () => {
+            const trip = this.getTrip();
+            if (!trip || trip.isCompleted) return;
+
+            const ok = window.confirm('Завершить поездку и зафиксировать итоги?');
+            if (!ok) return;
+
+            trip.isCompleted = true;
+            trip.completedAt = new Date().toISOString();
+            this.saveTrip(trip);
+
+            this.renderCompletionState();
+            this.renderBudget();
+            this.renderChecklist();
+            this.renderNotes();
+        });
+    }
+
+    renderCompletionState() {
+        const trip = this.getTrip();
+        if (!trip) return;
+
+        const statusEl = document.getElementById('tripSummaryStatus');
+        const finishButton = document.getElementById('finishTripBtn');
+        const compactEl = document.getElementById('tripSummaryCompact');
+        const datesEl = document.getElementById('summaryDates');
+        const daysEl = document.getElementById('summaryDays');
+        const spentEl = document.getElementById('summarySpent');
+        const budgetEl = document.getElementById('summaryBudget');
+        const currencySelect = document.getElementById('currencySelect');
+
+        const expenses = trip.expenses || [];
+        const spent = expenses.reduce((sum, item) => sum + Number(item.amount), 0);
+        const totalBudget = Number(trip.budget || 0);
+        const days = tripDaysCount(trip.startDate, trip.endDate);
+        const currency = this.getTripCurrency();
+
+        datesEl.textContent = trip.startDate && trip.endDate
+            ? formatDateRu(trip.startDate) + ' — ' + formatDateRu(trip.endDate)
+            : '—';
+        daysEl.textContent = days > 0 ? String(days) : '—';
+        spentEl.textContent = formatCurrency(spent, currency);
+        budgetEl.textContent = trip.budget ? formatCurrency(totalBudget, currency) : 'Не задан';
+        if (currencySelect) {
+            currencySelect.value = currency;
+        }
+
+        if (trip.isCompleted) {
+            statusEl.textContent = 'Поездка завершена';
+            finishButton.style.display = 'none';
+            compactEl.style.display = 'grid';
+        } else {
+            statusEl.textContent = 'Поездка в процессе';
+            finishButton.style.display = 'inline-flex';
+            compactEl.style.display = 'none';
+        }
+
+        this.applyCompletionLock(trip.isCompleted);
+    }
+
+    applyCompletionLock(isCompleted) {
+        const expenseLabel = document.getElementById('expenseLabel');
+        const expenseAmount = document.getElementById('expenseAmount');
+        const addExpenseBtn = document.getElementById('addExpenseBtn');
+        const checklistInput = document.getElementById('checklistInput');
+        const addChecklistBtn = document.getElementById('addChecklistBtn');
+        const notes = document.getElementById('tripNotes');
+        const currencySelect = document.getElementById('currencySelect');
+        const budgetSection = document.getElementById('budgetSection');
+        const checklistSection = document.getElementById('checklistSection');
+        const notesSection = document.getElementById('notesSection');
+
+        if (expenseLabel) expenseLabel.disabled = isCompleted;
+        if (expenseAmount) expenseAmount.disabled = isCompleted;
+        if (addExpenseBtn) addExpenseBtn.disabled = isCompleted;
+        if (checklistInput) checklistInput.disabled = isCompleted;
+        if (addChecklistBtn) addChecklistBtn.disabled = isCompleted;
+        if (notes) notes.readOnly = isCompleted;
+        if (currencySelect) currencySelect.disabled = isCompleted;
+
+        if (budgetSection) {
+            budgetSection.style.display = isCompleted ? 'none' : (this.getTrip()?.budget ? 'block' : 'none');
+        }
+        if (checklistSection) {
+            checklistSection.style.display = isCompleted ? 'none' : 'block';
+        }
+        if (notesSection) {
+            notesSection.style.display = isCompleted ? 'none' : 'block';
         }
     }
 
@@ -143,6 +282,7 @@ export class TripPage {
         if (!addExpenseBtn || !expenseAmount) return;
 
         addExpenseBtn.addEventListener('click', () => {
+            if (this.isTripCompleted()) return;
             const label = document.getElementById('expenseLabel').value.trim();
             const amount = document.getElementById('expenseAmount').value;
             if (!label || !amount || Number(amount) <= 0) return;
@@ -155,6 +295,7 @@ export class TripPage {
             document.getElementById('expenseLabel').value = '';
             document.getElementById('expenseAmount').value = '';
             this.renderBudget();
+            this.renderCompletionState();
         });
 
         expenseAmount.addEventListener('keydown', (event) => {
@@ -173,9 +314,10 @@ export class TripPage {
         const spent = expenses.reduce((sum, item) => sum + Number(item.amount), 0);
         const remaining = total - spent;
         const percent = total > 0 ? Math.min((spent / total) * 100, 100) : 0;
+        const currency = this.getTripCurrency();
 
-        document.getElementById('budgetTotal').textContent = '$' + total.toLocaleString();
-        document.getElementById('budgetSpent').textContent = '$' + spent.toLocaleString();
+        document.getElementById('budgetTotal').textContent = formatCurrency(total, currency);
+        document.getElementById('budgetSpent').textContent = formatCurrency(spent, currency);
 
         const bar = document.getElementById('budgetBar');
         bar.style.width = percent + '%';
@@ -183,10 +325,10 @@ export class TripPage {
 
         const remainEl = document.getElementById('budgetRemaining');
         if (remaining < 0) {
-            remainEl.textContent = 'Превышение бюджета на $' + Math.abs(remaining).toLocaleString();
+            remainEl.textContent = 'Превышение бюджета на ' + formatCurrency(Math.abs(remaining), currency);
             remainEl.classList.add('trip-budget__remaining--over');
         } else {
-            remainEl.textContent = 'Осталось: $' + remaining.toLocaleString();
+            remainEl.textContent = 'Осталось: ' + formatCurrency(remaining, currency);
             remainEl.classList.remove('trip-budget__remaining--over');
         }
 
@@ -196,24 +338,30 @@ export class TripPage {
         expenses.forEach((expense, idx) => {
             const item = document.createElement('div');
             item.className = 'expense-item';
+            const deleteButton = this.isTripCompleted()
+                ? ''
+                : '<button class="expense-item__delete" data-idx="' + idx + '"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
             item.innerHTML =
                 '<span class="expense-item__label">' + escapeHTML(expense.label) + '</span>' +
                 '<div class="expense-item__right">' +
-                    '<span class="expense-item__amount">$' + Number(expense.amount).toLocaleString() + '</span>' +
-                    '<button class="expense-item__delete" data-idx="' + idx + '"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
+                    '<span class="expense-item__amount">' + formatCurrency(expense.amount, currency) + '</span>' +
+                    deleteButton +
                 '</div>';
             list.appendChild(item);
         });
 
-        list.querySelectorAll('.expense-item__delete').forEach((btn) => {
+        if (!this.isTripCompleted()) {
+            list.querySelectorAll('.expense-item__delete').forEach((btn) => {
             btn.addEventListener('click', () => {
                 const index = Number(btn.dataset.idx);
                 const current = this.getTrip();
                 current.expenses.splice(index, 1);
                 this.saveTrip(current);
                 this.renderBudget();
+                this.renderCompletionState();
             });
-        });
+            });
+        }
     }
 
     bindChecklistEvents() {
@@ -222,6 +370,7 @@ export class TripPage {
         if (!addChecklistBtn || !checklistInput) return;
 
         const addChecklistItem = () => {
+            if (this.isTripCompleted()) return;
             const text = checklistInput.value.trim();
             if (!text) return;
 
@@ -251,6 +400,10 @@ export class TripPage {
             const el = document.createElement('div');
             el.className = 'checklist-item' + (item.done ? ' checklist-item--done' : '');
 
+            const deleteButton = this.isTripCompleted()
+                ? ''
+                : '<button class="checklist-item__delete" data-idx="' + idx + '"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+
             el.innerHTML =
                 '<div class="checklist-item__checkbox">' +
                     (item.done
@@ -258,9 +411,10 @@ export class TripPage {
                         : '') +
                 '</div>' +
                 '<span class="checklist-item__text">' + escapeHTML(item.text) + '</span>' +
-                '<button class="checklist-item__delete" data-idx="' + idx + '"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+                deleteButton;
 
             el.addEventListener('click', (event) => {
+                if (this.isTripCompleted()) return;
                 if (event.target.closest('.checklist-item__delete')) return;
                 const current = this.getTrip();
                 current.checklist[idx].done = !current.checklist[idx].done;
@@ -271,16 +425,18 @@ export class TripPage {
             container.appendChild(el);
         });
 
-        container.querySelectorAll('.checklist-item__delete').forEach((btn) => {
-            btn.addEventListener('click', (event) => {
-                event.stopPropagation();
-                const index = Number(btn.dataset.idx);
-                const current = this.getTrip();
-                current.checklist.splice(index, 1);
-                this.saveTrip(current);
-                this.renderChecklist();
+        if (!this.isTripCompleted()) {
+            container.querySelectorAll('.checklist-item__delete').forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const index = Number(btn.dataset.idx);
+                    const current = this.getTrip();
+                    current.checklist.splice(index, 1);
+                    this.saveTrip(current);
+                    this.renderChecklist();
+                });
             });
-        });
+        }
 
         const progress = document.getElementById('checklistProgress');
         if (items.length === 0) {
@@ -297,6 +453,7 @@ export class TripPage {
         if (!notesArea || !savedLabel) return;
 
         notesArea.addEventListener('input', () => {
+            if (this.isTripCompleted()) return;
             clearTimeout(this.saveTimeout);
             savedLabel.classList.remove('trip-notes__saved--visible');
 

@@ -36,6 +36,16 @@
     color: #e0f5e8;
 }
 
+[data-theme="dark"] .trip-card--completed {
+    background: linear-gradient(145deg, #243b2d 0%, #1d3125 100%);
+    border-color: #3f6b4b;
+}
+
+[data-theme="dark"] .trip-card__status {
+    color: #0d1a10;
+    background: #a0f1bd;
+}
+
 [data-theme="dark"] .trip-card__dates {
     background-color: #2e5c35;
     color: #e0f5e8;

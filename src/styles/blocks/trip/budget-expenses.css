@@ -8,6 +8,30 @@
     gap: 12px;
 }
 
+.trip-budget__currency-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.trip-budget__currency-label {
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.trip-budget__currency {
+    border: 1.5px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-primary);
+    background: white;
+    min-width: 150px;
+}
+
 .trip-budget__total,
 .trip-budget__spent-row {
     display: flex;
@@ -128,5 +152,17 @@
 .expense-item__delete:hover {
     opacity: 1;
     color: #c0392b;
+}
+
+@media (max-width: 800px) {
+    .trip-budget__currency-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .trip-budget__currency {
+        width: 100%;
+        min-width: 0;
+    }
 }
 

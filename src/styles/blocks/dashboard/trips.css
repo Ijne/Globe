@@ -115,6 +115,22 @@
     font-size: 14px;
 }
 
+.trip-card--completed {
+    background: linear-gradient(145deg, #eef5f0 0%, #dfece3 100%);
+    border: 1px solid #b9d3c1;
+}
+
+.trip-card__status {
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #2f6e46;
+    background: #cbead6;
+    border-radius: 999px;
+    padding: 4px 10px;
+}
+
 /* Empty State */
 .trips-empty {
     display: none;

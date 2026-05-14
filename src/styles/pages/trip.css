@@ -9,6 +9,7 @@
 @import url('../blocks/dashboard/nav.css');
 
 @import url('../blocks/trip/hero.css');
+@import url('../blocks/trip/summary.css');
 @import url('../blocks/trip/layout-weather.css');
 @import url('../blocks/trip/budget-expenses.css');
 @import url('../blocks/trip/checklist.css');

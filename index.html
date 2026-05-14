@@ -145,7 +145,7 @@
             <button class="modal-tab modal-tab--active" id="tabLogin">Войти</button>
             <button class="modal-tab" id="tabRegister">Регистрация</button>
         </div>
-        <form class="modal-form" id="loginForm">
+        <form class="modal-form" id="loginForm" novalidate>
             <div class="modal-form__field">
                 <label class="modal-form__label">Эл. почта</label>
                 <input class="modal-form__input" type="email" id="loginEmail" placeholder="you@example.com" required>
@@ -157,7 +157,7 @@
             <div class="modal-form__error" id="loginError"></div>
             <button class="login-button modal-form__submit" type="submit">Войти</button>
         </form>
-        <form class="modal-form" id="registerForm" style="display:none">
+        <form class="modal-form" id="registerForm" style="display:none" novalidate>
             <div class="modal-form__field">
                 <label class="modal-form__label">Имя</label>
                 <input class="modal-form__input" type="text" id="regName" placeholder="Ваше имя" required>

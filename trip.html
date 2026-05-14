@@ -20,27 +20,50 @@
         <div class="trip-hero__destination" id="heroDestination">Загрузка…</div>
         <div class="trip-hero__name" id="heroName"></div>
         <div class="trip-hero__meta" id="heroMeta"></div>
+        <button class="login-button trip-finish-btn" id="finishTripBtn">Завершить поездку</button>
     </div>
 </header>
 
 <main>
     <div class="trip-content">
+        <section class="trip-section trip-summary" id="tripSummarySection">
+            <div class="trip-section__title">Итоги поездки</div>
+            <div class="trip-summary__panel">
+                <div class="trip-summary__status" id="tripSummaryStatus">Поездка в процессе</div>
+                <div class="trip-summary__compact" id="tripSummaryCompact" style="display:none">
+                    <div class="trip-summary__item"><span>Даты</span><span id="summaryDates"></span></div>
+                    <div class="trip-summary__item"><span>Длительность</span><span id="summaryDays"></span></div>
+                    <div class="trip-summary__item"><span>Расходы</span><span id="summarySpent"></span></div>
+                    <div class="trip-summary__item"><span>Бюджет</span><span id="summaryBudget"></span></div>
+                </div>
+            </div>
+        </section>
+
         <section class="trip-section">
             <div class="trip-section__title">Погода сейчас</div>
             <div class="trip-weather" id="tripWeather">
                 <div class="trip-weather__status">Загрузка погоды...</div>
             </div>
         </section>
-        <section class="trip-section" id="budgetSection" style="display:none">
+        <section class="trip-section trip-editable-section" id="budgetSection" style="display:none">
             <div class="trip-section__title">Бюджет</div>
             <div class="trip-budget">
+                <div class="trip-budget__currency-row">
+                    <label class="trip-budget__currency-label" for="currencySelect">Валюта:</label>
+                    <select class="trip-budget__currency" id="currencySelect">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="RUB">RUB (₽)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
                 <div class="trip-budget__total">
                     <span class="trip-budget__label">Общий бюджет:</span>
-                    <span class="trip-budget__value" id="budgetTotal">$0</span>
+                    <span class="trip-budget__value" id="budgetTotal">0</span>
                 </div>
                 <div class="trip-budget__spent-row">
                     <span class="trip-budget__label">Потрачено:</span>
-                    <span class="trip-budget__value" id="budgetSpent">$0</span>
+                    <span class="trip-budget__value" id="budgetSpent">0</span>
                 </div>
                 <div class="trip-budget__bar-wrapper">
                     <div class="trip-budget__bar" id="budgetBar"></div>
@@ -49,14 +72,14 @@
 
                 <div class="trip-budget__add">
                     <input class="modal-form__input trip-budget__input" type="text" id="expenseLabel" placeholder="Описание (например, отель)">
-                    <input class="modal-form__input trip-budget__input trip-budget__input--amount" type="number" id="expenseAmount" placeholder="Сумма ($)" min="0">
+                    <input class="modal-form__input trip-budget__input trip-budget__input--amount" type="number" id="expenseAmount" placeholder="Сумма" min="0">
                     <button class="login-button trip-budget__add-btn" id="addExpenseBtn">+ Добавить</button>
                 </div>
 
                 <div class="expenses-list" id="expensesList"></div>
             </div>
         </section>
-        <section class="trip-section">
+        <section class="trip-section trip-editable-section" id="checklistSection">
             <div class="trip-section__title">Список вещей</div>
             <div class="trip-checklist">
                 <div class="trip-checklist__add">
@@ -67,7 +90,7 @@
                 <div class="checklist-progress" id="checklistProgress"></div>
             </div>
         </section>
-        <section class="trip-section">
+        <section class="trip-section trip-editable-section" id="notesSection">
             <div class="trip-section__title">Заметки</div>
             <textarea class="trip-notes" id="tripNotes" placeholder="Записывайте все о поездке — адреса отелей, советы, идеи…"></textarea>
             <div class="trip-notes__saved" id="notesSaved"></div>

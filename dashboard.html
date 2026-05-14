@@ -60,9 +60,20 @@
                     <input class="modal-form__input" type="date" id="tripEndDate" required>
                 </div>
             </div>
-            <div class="modal-form__field">
-                <label class="modal-form__label">Бюджет ($) <span class="modal-form__optional">необязательно</span></label>
-                <input class="modal-form__input" type="number" id="tripBudget" placeholder="2000" min="0">
+            <div class="modal-form__row">
+                <div class="modal-form__field">
+                    <label class="modal-form__label">Бюджет <span class="modal-form__optional">необязательно</span></label>
+                    <input class="modal-form__input" type="number" id="tripBudget" placeholder="2000" min="0">
+                </div>
+                <div class="modal-form__field">
+                    <label class="modal-form__label">Валюта</label>
+                    <select class="modal-form__input" id="tripCurrency">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="RUB">RUB (₽)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
             </div>
             <div class="modal-form__error" id="newTripError"></div>
             <button class="login-button modal-form__submit" type="submit">Создать поездку</button>

@@ -76,10 +76,30 @@ export class AuthModal {
         }
     }
 
+    isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email);
+    }
+
     handleLogin() {
         const email = document.getElementById('loginEmail').value.trim().toLowerCase();
         const password = document.getElementById('loginPassword').value;
         const loginError = document.getElementById('loginError');
+
+        if (loginError) loginError.textContent = '';
+
+        if (!email || !password) {
+            if (loginError) {
+                loginError.textContent = 'Заполните почту и пароль';
+            }
+            return;
+        }
+
+        if (!this.isValidEmail(email)) {
+            if (loginError) {
+                loginError.textContent = 'Введите корректный email (например, name@mail.com)';
+            }
+            return;
+        }
 
         const users = this.storage.getUsers();
         const user = users.find((u) => u.email === email && u.password === password);
@@ -100,6 +120,22 @@ export class AuthModal {
         const email = document.getElementById('regEmail').value.trim().toLowerCase();
         const password = document.getElementById('regPassword').value;
         const registerError = document.getElementById('registerError');
+
+        if (registerError) registerError.textContent = '';
+
+        if (!name || !email || !password) {
+            if (registerError) {
+                registerError.textContent = 'Заполните все поля';
+            }
+            return;
+        }
+
+        if (!this.isValidEmail(email)) {
+            if (registerError) {
+                registerError.textContent = 'Введите корректный email (например, name@mail.com)';
+            }
+            return;
+        }
 
         const users = this.storage.getUsers();
         const existing = users.find((u) => u.email === email);

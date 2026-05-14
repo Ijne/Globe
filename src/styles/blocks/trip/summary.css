@@ -1,0 +1,99 @@
+.trip-summary__panel {
+    background-color: var(--color-accent);
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.trip-summary__status {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.trip-finish-btn {
+    align-self: flex-start;
+    height: 44px;
+    min-width: 210px;
+    width: auto;
+    padding: 0 18px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2E4F21 0%, #3f6b2f 100%);
+    box-shadow: 0 8px 20px rgba(46, 79, 33, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 14px;
+}
+
+.trip-finish-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(46, 79, 33, 0.35);
+}
+
+.trip-summary__compact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 16px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.trip-summary__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--color-primary);
+}
+
+.trip-summary__item span:first-child {
+    opacity: 0.75;
+}
+
+.trip-summary__item span:last-child {
+    font-weight: 600;
+}
+
+[data-theme="dark"] .trip-summary__panel {
+    background-color: #1e3326;
+}
+
+[data-theme="dark"] .trip-summary__status {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-summary__compact {
+    background-color: #111a14;
+}
+
+[data-theme="dark"] .trip-finish-btn {
+    background: linear-gradient(135deg, #A0F1BD 0%, #78d89a 100%);
+    color: #0d1a10;
+    box-shadow: 0 8px 20px rgba(160, 241, 189, 0.25);
+}
+
+[data-theme="dark"] .trip-finish-btn:hover {
+    box-shadow: 0 10px 24px rgba(160, 241, 189, 0.35);
+}
+
+[data-theme="dark"] .trip-summary__item {
+    color: #e0f5e8;
+}
+
+@media (max-width: 800px) {
+    .trip-summary__compact {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-finish-btn {
+        width: 100%;
+        min-width: 0;
+    }
+}

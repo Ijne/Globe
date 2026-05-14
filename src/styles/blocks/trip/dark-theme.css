@@ -21,6 +21,16 @@
     color: #e0f5e8;
 }
 
+[data-theme="dark"] .trip-budget__currency-label {
+    color: #e0f5e8;
+}
+
+[data-theme="dark"] .trip-budget__currency {
+    background-color: #111a14;
+    color: #e0f5e8;
+    border-color: #2e5c35;
+}
+
 [data-theme="dark"] .expense-item {
     background-color: #111a14;
     color: #e0f5e8;
