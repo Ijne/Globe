@@ -38,3 +38,23 @@
     grid-area: copyright;
 }
 
+@media (max-width: 800px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+        height: auto;
+        padding: 40px 30px;
+    }
+
+    .footer__text {
+        align-self: flex-start;
+        padding-right: 0;
+    }
+
+    .footer__copyright {
+        align-self: flex-start;
+    }
+}
+

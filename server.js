@@ -14,8 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static(path.join(__dirname, 'frontend')));
-app.use('/src', express.static(path.join(__dirname, 'src')));
+app.use(express.static(__dirname));
 
 app.get('/api/weather', async (req, res) => {
     const city = String(req.query.city || '').trim();
@@ -60,7 +59,7 @@ app.get('/api/weather', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {

@@ -33,11 +33,14 @@
 
 .burger-button {
     display: none;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     aspect-ratio: 1 / 1;
     background-color: var(--color-primary);
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 .nav.nav--open .burger-button {
@@ -47,6 +50,7 @@
 .burger-button:hover {
     cursor: pointer;
     background-color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .nav__button {

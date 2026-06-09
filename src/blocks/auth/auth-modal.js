@@ -1,4 +1,5 @@
 import { StorageService } from '../../services/storage-service.js';
+import { syncScrollLock } from '../../utils/dom.js';
 
 export class AuthModal {
     constructor() {
@@ -155,6 +156,7 @@ export class AuthModal {
 
     open() {
         this.authModal.classList.add('modal-overlay--visible');
+        syncScrollLock();
     }
 
     close() {
@@ -163,5 +165,6 @@ export class AuthModal {
         const registerError = document.getElementById('registerError');
         if (loginError) loginError.textContent = '';
         if (registerError) registerError.textContent = '';
+        syncScrollLock();
     }
 }

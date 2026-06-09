@@ -59,6 +59,18 @@
         align-self: flex-start;
     }
 
+    .description {
+        width: 100%;
+    }
+
+    .description__title {
+        font-size: 12vw;
+    }
+
+    .services-banner__title {
+        font-size: 7vw;
+    }
+
     .header-banner__globe {
         width: 80vw;
         height: auto;
@@ -166,7 +178,7 @@
     }
 
     .variants-table-element {
-        height: 40vh;
+        min-height: auto;
         font-size: 3.5vw;
     }
 
@@ -176,21 +188,6 @@
 
     .variants-table-element__title {
         font-size: 5.5vw;
-    }
-
-    footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-left: 30px;
-    }
-
-    .footer__text {
-        padding-right: 0px;
-    }
-
-    .footer__copyright {
-        align-self: flex-start;
     }
 }
 

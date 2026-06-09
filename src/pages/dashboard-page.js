@@ -1,6 +1,6 @@
 import { StorageService } from '../services/storage-service.js';
 import { formatDateRu } from '../utils/date.js';
-import { escapeHTML } from '../utils/dom.js';
+import { escapeHTML, syncScrollLock } from '../utils/dom.js';
 import { formatCurrency, normalizeCurrency } from '../utils/currency.js';
 
 export class DashboardPage {
@@ -105,12 +105,14 @@ export class DashboardPage {
             startInput.min = today;
             endInput.min = startInput.value || today;
             newTripModal.classList.add('modal-overlay--visible');
+            syncScrollLock();
         };
 
         const closeNewTripModal = () => {
             newTripModal.classList.remove('modal-overlay--visible');
             document.getElementById('newTripForm').reset();
             document.getElementById('newTripError').textContent = '';
+            syncScrollLock();
         };
 
         document.getElementById('addTripBtn').addEventListener('click', openNewTripModal);
@@ -280,10 +282,12 @@ export class DashboardPage {
     openDeleteModal(id) {
         this.tripToDelete = id;
         document.getElementById('deleteModal').classList.add('modal-overlay--visible');
+        syncScrollLock();
     }
 
     closeDeleteModal() {
         this.tripToDelete = null;
         document.getElementById('deleteModal').classList.remove('modal-overlay--visible');
+        syncScrollLock();
     }
 }

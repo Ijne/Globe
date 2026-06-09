@@ -41,3 +41,26 @@
     transition: 0.3s ease;
 }
 
+@media (max-width: 560px) {
+    .dash-nav {
+        padding-left: 16px;
+        gap: 10px;
+    }
+
+    .dash-nav__right {
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .dash-nav__username {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 90px;
+    }
+
+    .dash-nav__logout {
+        min-width: 0;
+    }
+}
+

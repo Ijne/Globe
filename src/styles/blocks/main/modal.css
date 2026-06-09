@@ -22,6 +22,8 @@
     padding: 40px;
     width: 90%;
     max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     font-family: 'Noto Sans', sans-serif;
     color: var(--color-primary);
@@ -131,5 +133,16 @@
 
 .modal-form__submit:hover {
     cursor: pointer;
+}
+
+@media (max-width: 560px) {
+    .modal {
+        padding: 28px 22px;
+    }
+
+    .modal-form__row {
+        flex-direction: column;
+        gap: 18px;
+    }
 }
 
