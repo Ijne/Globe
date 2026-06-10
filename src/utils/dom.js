@@ -12,6 +12,9 @@ export function byId(id) {
 // (модальное окно или мобильное меню). Идемпотентна — её можно
 // безопасно вызывать после любого открытия/закрытия.
 export function syncScrollLock() {
-    const anyOpen = document.querySelector('.modal-overlay--visible, .nav--open');
-    document.body.classList.toggle('no-scroll', Boolean(anyOpen));
+    const locked = Boolean(document.querySelector('.modal-overlay--visible, .nav--open'));
+    // Блокируем прокрутку и на <html>, и на <body>: на мобильном вьюпорте
+    // скроллится корневой элемент, и overflow:hidden только на body его не держит.
+    document.documentElement.classList.toggle('no-scroll', locked);
+    document.body.classList.toggle('no-scroll', locked);
 }

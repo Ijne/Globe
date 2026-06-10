@@ -19,6 +19,7 @@
     align-items: flex-start;
     border: none;
     background-color: rgba(160, 241, 189, 0.95);
+    padding-top: 72px;
 }
 
 .nav.nav--open :last-child {
@@ -44,13 +45,28 @@
 }
 
 .nav.nav--open .burger-button {
-    height: 100px;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    height: auto;
+    width: auto;
+    aspect-ratio: auto;
+    padding: 8px;
+    background-color: transparent;
+    color: var(--color-primary);
+    border-radius: 8px;
+    z-index: 100;
 }
 
 .burger-button:hover {
     cursor: pointer;
     background-color: var(--color-accent);
     color: var(--color-primary);
+}
+
+.nav.nav--open .burger-button:hover {
+    background-color: transparent;
+    opacity: 0.6;
 }
 
 .nav__button {
